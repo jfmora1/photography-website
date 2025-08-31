@@ -1,0 +1,1505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jay Mora Media</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --transition: all 300ms ease-in-out;
+            --dark-color: #332e29;
+            --light-color: #fff;
+            --accent-color: #c9a96e;
+            --bg-light: #f8f8f8;
+        }
+
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            outline: 0;
+        }
+
+        html {
+            font-size: 10px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-size: 1.6rem;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+        }
+
+        button,
+        .btn {
+            cursor: pointer;
+            border: none;
+            background: transparent;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--dark-color);
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .vh-100 {
+            min-height: 100vh;
+        }
+
+        h1,
+        h2,
+        h3 {
+            margin-top: 0;
+            line-height: 1.3;
+            margin-bottom: 2rem;
+            color: var(--dark-color);
+        }
+
+        .flex {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .py-7 {
+            padding: 7rem 0;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 1rem;
+        }
+
+        .lead {
+            opacity: 0.8;
+            padding: 1rem 0;
+            font-size: 1.7rem;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(51, 46, 41, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: var(--transition);
+            transform: translateY(-100%);
+        }
+
+        .navbar.visible {
+            transform: translateY(0);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .logo {
+            color: var(--light-color);
+            font-size: 2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .navbar ul {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .navbar ul li a {
+            color: var(--light-color);
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .navbar ul li a:hover,
+        .navbar ul li a.active {
+            color: var(--accent-color);
+        }
+
+        .navbar ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            transition: var(--transition);
+        }
+
+        .navbar ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--light-color);
+            margin: 3px 0;
+            transition: var(--transition);
+        }
+
+        /* Page content */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* header */
+        #header {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
+                url('../images/header-ban.jpg') center/cover no-repeat;
+            justify-content: flex-start;
+            align-items: flex-end;
+            height: 100vh;
+            display: flex;
+        }
+
+        #header .container {
+            width: 100%;
+        }
+
+        .header-content {
+            padding-bottom: 4rem;
+        }
+
+        .header-content h1 {
+            font-size: 4.5rem;
+            margin-bottom: 0;
+            text-transform: uppercase;
+            color: var(--light-color);
+        }
+
+        .header-content h3 {
+            color: var(--light-color);
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-top: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            margin-top: 3.5rem;
+        }
+
+        .social-links li a {
+            width: 40px;
+            height: 40px;
+            background-color: var(--light-color);
+            margin-right: 1rem;
+            border-radius: .3rem;
+            box-shadow: 0 0 6px 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            /* centers the icon */
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            /* smooth animation */
+            color: black;
+            /* make icons black by default */
+            font-size: 18px;
+            /* adjust icon size if needed */
+        }
+
+        .social-links li a:hover {
+            transform: scale(1.1);
+            /* subtle zoom effect */
+            background-color: black;
+            /* background turns black */
+            color: white;
+            /* icon turns white */
+        }
+
+        .social-links li a i {
+            color: black;
+            /* always visible */
+            transition: color 0.3s ease;
+        }
+
+        .social-links li a:hover i {
+            color: white;
+            /* invert on hover */
+        }
+
+        /* about */
+        .about-left {
+            margin-bottom: 4rem;
+            height: 480px;
+            overflow: hidden;
+        }
+
+        .circular-image {
+            border-radius: 50%;
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            margin: 0 auto;
+        }
+
+        /* button down and title -reusable */
+        .btn-down {
+            font-size: 3rem;
+            display: inline-block;
+            margin-top: 1rem;
+            transition: var(--transition);
+        }
+
+        .btn-down:hover {
+            opacity: 0.8;
+            transform: translateY(5px);
+        }
+
+        .btn-down-white {
+            color: var(--light-color);
+        }
+
+        .title {
+            margin-bottom: 5rem;
+        }
+
+        .title h2 {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .title h2::after {
+            position: absolute;
+            content: "";
+            top: 120%;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background-color: var(--dark-color);
+        }
+
+        /* work */
+        #work {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
+                url('../images/work-picture.jpg') center/cover no-repeat fixed;
+            color: var(--light-color);
+        }
+
+        #work .title h2,
+        #work h3 {
+            color: var(--light-color);
+        }
+
+        #work .title h2::after {
+            background: var(--light-color);
+        }
+
+        .work-bottom {
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .work-bottom>div .icon {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 1.7rem auto;
+            background: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .work-bottom>div .icon i {
+            font-size: 2rem;
+            color: var(--dark-color);
+        }
+
+        /* portfolio */
+        .portfolio-grid {
+            gap: 2rem;
+        }
+
+        .portfolio-grid>div {
+            transition: var(--transition);
+            filter: grayscale(100%);
+            border-radius: 1rem;
+            overflow: hidden;
+            height: 300px;
+        }
+
+        .portfolio-grid>div img {
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .portfolio-grid>div:hover {
+            transform: scale(0.95);
+            filter: grayscale(0%);
+        }
+
+        /* Pricing Styles */
+        #pricing {
+            background: var(--bg-light);
+            padding: 8rem 0;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 5rem;
+        }
+
+        .pricing-card {
+            background: var(--light-color);
+            border-radius: 1rem;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-color), var(--dark-color));
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .pricing-card.featured {
+            transform: scale(1.05);
+            border: 2px solid var(--accent-color);
+        }
+
+        .pricing-card.featured::before {
+            height: 6px;
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: 2rem;
+            right: -3rem;
+            background: var(--accent-color);
+            color: var(--dark-color);
+            padding: 0.5rem 4rem;
+            transform: rotate(45deg);
+            font-weight: 600;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+        }
+
+        .pricing-card h3 {
+            font-size: 2.4rem;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+
+        .pricing-price {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin: 2rem 0;
+        }
+
+        .pricing-price span {
+            font-size: 1.6rem;
+            color: var(--dark-color);
+            font-weight: 400;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 3rem 0;
+        }
+
+        .pricing-features li {
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+            font-size: 1.5rem;
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-features li i {
+            color: var(--accent-color);
+            margin-right: 1rem;
+        }
+
+        .pricing-btn {
+            background: var(--dark-color);
+            color: var(--light-color);
+            padding: 1.5rem 3rem;
+            border-radius: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+            transition: var(--transition);
+            display: inline-block;
+            margin-top: 2rem;
+        }
+
+        .pricing-btn:hover {
+            background: var(--accent-color);
+            color: var(--dark-color);
+            transform: translateY(-2px);
+        }
+
+        .pricing-card.featured .pricing-btn {
+            background: var(--accent-color);
+            color: var(--dark-color);
+        }
+
+        .pricing-card.featured .pricing-btn:hover {
+            background: var(--dark-color);
+            color: var(--light-color);
+        }
+
+        /* contact */
+        #contact {
+            background-color: var(--bg-light);
+        }
+
+        .contact-content {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .contact-left {
+            margin-bottom: 5rem;
+        }
+
+        .contact-left .lead {
+            padding: 0.5rem;
+        }
+
+        .contact-left form {
+            margin-top: 3rem;
+        }
+
+        .contact-left form .form-control {
+            display: block;
+            margin: 1.6rem 0;
+            border: 2px solid rgba(0, 0, 0, 0.3);
+            padding: 1rem;
+            width: 100%;
+            border-radius: 0.5rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .contact-left form .form-control::placeholder {
+            font-size: 15px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .contact-left .btn-submit {
+            padding: 1.4rem 3rem;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark-color);
+            color: var(--light-color);
+            margin-top: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1.6rem;
+            transition: var(--transition);
+            border-radius: 0.5rem;
+        }
+
+        .contact-left .btn-submit:hover {
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+        }
+
+        .contact-right img {
+            border-radius: 1rem;
+        }
+
+        #insta {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
+                url('../images/insta-picture.jpg') center/cover no-repeat fixed;
+            min-height: 65vh;
+        }
+
+        #insta .title h2 {
+            color: var(--light-color);
+        }
+
+        #insta .title h2::after {
+            background-color: var(--light-color);
+        }
+
+        .insta-grid>div {
+            height: 400px;
+            overflow: hidden;
+            transition: var(--transition);
+            filter: grayscale(100%);
+            border-radius: 1rem;
+        }
+
+        .insta-grid>div img {
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .insta-grid>div:hover {
+            transform: scale(0.95);
+            filter: grayscale(0%);
+        }
+
+        /* footer */
+        #footer {
+            background-color: var(--dark-color);
+            color: var(--light-color);
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .footer-content h3 {
+            color: var(--light-color);
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+        }
+
+        .footer-content ul {
+            flex-direction: column;
+        }
+
+        .footer-content ul li a {
+            color: var(--light-color);
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .footer-content ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-content ul li {
+            margin: .5rem 1rem;
+        }
+
+        .footer-content>div:first-child {
+            margin-bottom: 3rem;
+        }
+
+        .footer-content>div:first-child div {
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            margin: 5rem auto;
+            border-radius: 50%;
+            background: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--dark-color);
+        }
+
+        .footer-content img {
+            width: 120px;
+            /* set size of circle */
+            height: 120px;
+            border-radius: 50%;
+            /* makes it circular */
+            object-fit: cover;
+            /* fills the circle, cropping if needed */
+            display: block;
+            /* removes extra spacing below image */
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--dark-color);
+            color: var(--light-color);
+            text-align: center;
+            padding: 6rem 0;
+        }
+
+        .cta-section h2 {
+            color: var(--light-color);
+            margin-bottom: 2rem;
+        }
+
+        .cta-section .lead {
+            max-width: 600px;
+            margin: 0 auto 3rem auto;
+        }
+
+        .cta-btn {
+            background: var(--accent-color);
+            color: var(--dark-color);
+            padding: 1.5rem 4rem;
+            border-radius: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .cta-btn:hover {
+            background: var(--light-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Media Queries */
+        @media(min-width: 450px) {
+            .work-bottom {
+                grid-template-columns: repeat(2, 1fr);
+                column-gap: 3rem;
+                row-gap: 2rem;
+            }
+        }
+
+        @media(min-width: 576px) {
+            .title h2 {
+                font-size: 4rem;
+            }
+
+            .work-bottom {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-left form .form-control {
+                max-width: 500px;
+            }
+
+            .footer-content ul {
+                flex-direction: row;
+            }
+        }
+
+        @media(min-width: 768px) {
+            .header-content h1 {
+                font-size: 7rem;
+            }
+
+            .about-content,
+            .work-top {
+                grid-template-columns: repeat(2, 1fr);
+                column-gap: 6rem;
+                row-gap: 0;
+            }
+
+            .about-left {
+                margin-bottom: 0;
+            }
+
+            .contact-content {
+                flex-direction: row;
+            }
+
+            .contact-right {
+                padding-left: 3rem;
+                width: 50%;
+            }
+
+            .contact-left {
+                width: 50%;
+            }
+
+            .insta-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .mobile-menu {
+                display: none;
+            }
+        }
+
+        @media(min-width: 992px) {
+            .insta-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .insta-grid>div {
+                height: 250px;
+            }
+        }
+
+        @media(min-width: 1200px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar ul {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .navbar.mobile-open ul {
+                display: flex;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--dark-color);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1rem;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+                order: -1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="logo">Jay Mora</div>
+            <ul>
+                <li><a href="#" onclick="showPage('home')" class="nav-link active">Home</a></li>
+                <li><a href="#" onclick="showPage('portfolio')" class="nav-link">Portfolio</a></li>
+                <li><a href="#" onclick="showPage('pricing')" class="nav-link">Pricing</a></li>
+                <li><a href="#" onclick="showPage('about')" class="nav-link">About</a></li>
+                <li><a href="#" onclick="showPage('contact')" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="mobile-menu" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <!-- header -->
+        <header id="header" class="vh-100 flex">
+            <div class="container">
+                <div class="header-content">
+                    <h1>I'm a <br><span class="typewrite" data-loop="yes" data-speed="100" data-delay="2000"
+                            data-words='["photographer", "videographer", "content creator"]'></span></h1>
+                    <h3>Jay Mora</h3>
+
+                    <ul class="social-links">
+                        <li>
+                            <a href="https://www.facebook.com/jaymoramedia/" class="flex">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/jaymoraphoto/" class="flex">
+                                <i class="fa-brands fa-instagram"></i>
+
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <!-- work section -->
+        <section id="work" class="vh-100 flex py-7">
+            <div class="container">
+                <div class="work-content">
+                    <div class="title">
+                        <h2>What type of work do I do?</h2>
+                    </div>
+                    <ul class="work-top grid">
+                        <li class="lead"><i class="fas fa-dot-circle"></i> With a passion for storytelling, I specialize
+                            in capturing timeless portraits, compelling headshots, impactful branding visuals, and
+                            sophisticated corporate imagery.</li>
+                        <li class="lead"><i class="fas fa-dot-circle"></i> Whether it's revealing the unique essence of
+                            individuals, crafting professional headshots, or creating visuals that align seamlessly with
+                            a business's identity, I tailor my approach to meet the distinct needs of each client.</li>
+                        <li class="lead"><i class="fas fa-dot-circle"></i> Through a seamless blend of technical
+                            expertise and artistic flair, I aim to deliver a visual experience that not only captures
+                            moments but also elevates the personal and professional presence of my clients.</li>
+                    </ul>
+
+                    <div class="work-bottom grid">
+                        <div>
+                            <span class="icon"><i class="fas fa-user"></i></span>
+                            <h3>Portrait</h3>
+                        </div>
+                        <div>
+                            <span class="icon"><i class="fas fa-id-card"></i></span>
+                            <h3>Headshot</h3>
+                        </div>
+                        <div>
+                            <span class="icon"><i class="fas fa-palette"></i></span>
+                            <h3>Branding</h3>
+                        </div>
+                        <div>
+                            <span class="icon"><i class="fas fa-building"></i></span>
+                            <h3>Corporate</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Create Something Amazing?</h2>
+                <p class="lead">Let's discuss your vision and bring it to life!</p>
+                <a href="#" onclick="showPage('pricing')" class="cta-btn">View Pricing</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Portfolio Page -->
+    <div id="portfolio-page" class="page">
+        <div style="height: 8rem;"></div>
+        <section id="portfolio" class="py-7">
+            <div class="container">
+                <div class="portfolio-content">
+                    <div class="title">
+                        <h2>My Recent Works</h2>
+                    </div>
+                    
+                    <div class="portfolio-grid grid">
+                        <div><img src="images/port-1.jpg" alt="Portfolio Image"> </div>
+                        <div><img src="images/port-2.jpg" alt="Portfolio Image"></div>
+                        <div><img src="images/port-3.jpg" alt="Portfolio Image"></div>
+                        <div><img src="images/port-4.jpg" alt="Portfolio Image"></div>
+                        <div><img src="images/port-5.jpg" alt="Portfolio Image"></div>
+                        <div><img src="images/port-6.jpg" alt="Portfolio Image"></div>
+                        <div><img src="images/port-7.jpg" alt="Portfolio Image"></div>
+                        <div><img src="images/port-8.jpg" alt="Portfolio Image"> </div>
+                        <div><img src="images/port-9.jpg" alt="Portfolio Image"></div>
+                        <div><img src="images/port-10.jpg" alt="Portfolio Image"></div>
+                        <div><img src="images/port-12.jpg" alt="Portfolio Image"></div>
+                        <div><img src="images/port-13.jpg" alt="Portfolio Image"></div>
+                        <div><img src="images/port-14.jpg" alt="Portfolio Image"></div>
+                        <div><img src="images/port-15.jpg" alt="Portfolio Image"></div>
+                        <div><img src="images/port-16.jpg" alt="Portfolio Image"> </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="insta" class="py-7">
+            <div class="container">
+                <div class="insta-content">
+                    <div class="title">
+                        <h2>Follow My Instagram</h2>
+                    </div>
+                    <div class="insta-grid grid">
+                        <!-- Instagram-style image links -->
+                        <div class="insta-post">
+                            <a href="https://www.instagram.com/jaymoraphoto/" target="_blank">
+                                <img src="images/port-1.jpg" alt="Instagram Image">
+                                <div class="insta-overlay">
+                                    <i class="fab fa-instagram"></i>
+                                    <span>View on Instagram</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="insta-post">
+                            <a href="https://www.instagram.com/jaymoraphoto/" target="_blank">
+                                <img src="images/port-2.jpg" alt="Instagram Image">
+                                <div class="insta-overlay">
+                                    <i class="fab fa-instagram"></i>
+                                    <span>View on Instagram</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="insta-post">
+                            <a href="https://www.instagram.com/jaymoraphoto/" target="_blank">
+                                <img src="images/port-3.jpg" alt="Instagram Image">
+                                <div class="insta-overlay">
+                                    <i class="fab fa-instagram"></i>
+                                    <span>View on Instagram</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="insta-post">
+                            <a href="https://www.instagram.com/jaymoraphoto/" target="_blank">
+                                <img src="images/port-4.jpg" alt="Instagram Image">
+                                <div class="insta-overlay">
+                                    <i class="fab fa-instagram"></i>
+                                    <span>View on Instagram</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Instagram CTA -->
+                    <div style="text-align: center; margin-top: 4rem;">
+                        <a href="https://www.instagram.com/jaymoraphoto/" target="_blank" class="cta-btn">
+                            <i class="fab fa-instagram" style="margin-right: 1rem;"></i>
+                            Follow @jaymoraphoto
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    <!-- Pricing Page -->
+<div id="pricing-page" class="page">
+    <div style="height: 8rem;"></div>
+    <section id="pricing">
+        <div class="container">
+            <div class="title">
+                <h2>Investment & Packages</h2>
+                <p class="lead" style="text-align: center; max-width: 700px; margin: 0 auto;">Professional photography and videography services tailored to elevate your personal brand or business. 10+ years of photography expertise meets fresh videography innovation.</p>
+            </div>
+            
+            <!-- First Time Client Special -->
+            <div style="background: linear-gradient(135deg, var(--accent-color), #d4b886); color: var(--dark-color); border-radius: 1rem; padding: 4rem 2rem; text-align: center; margin: 4rem 0 6rem 0; position: relative; overflow: hidden;">
+                <div style="position: absolute; top: -50px; right: -50px; background: rgba(255,255,255,0.1); border-radius: 50%; width: 150px; height: 150px;"></div>
+                <div style="position: absolute; bottom: -30px; left: -30px; background: rgba(255,255,255,0.1); border-radius: 50%; width: 100px; height: 100px;"></div>
+                
+                <div style="position: relative; z-index: 2;">
+                    <h3 style="color: var(--dark-color); font-size: 2.8rem; margin-bottom: 1rem;">First Time Client Special</h3>
+                    <p style="font-size: 1.8rem; margin-bottom: 2rem; font-weight: 500;">Try my work at my select location</p>
+                    
+                    <div style="background: rgba(255,255,255,0.9); padding: 3rem; border-radius: 1rem; backdrop-filter: blur(10px); max-width: 400px; margin: 0 auto;">
+                        <i class="fas fa-camera" style="font-size: 3rem; color: var(--dark-color); margin-bottom: 1.5rem;"></i>
+                        <h4 style="color: var(--dark-color); margin-bottom: 1rem; font-size: 2rem;">Photo Mini Session</h4>
+                        <div style="font-size: 2.8rem; font-weight: 700; color: var(--dark-color); margin: 1.5rem 0;">$75</div>
+                        <ul style="text-align: left; list-style: none; padding: 0;">
+                            <li style="padding: 0.5rem 0; color: var(--dark-color);"><i class="fas fa-check" style="color: var(--accent-color); margin-right: 1rem;"></i>15-minute session</li>
+                            <li style="padding: 0.5rem 0; color: var(--dark-color);"><i class="fas fa-check" style="color: var(--accent-color); margin-right: 1rem;"></i>10+ edited photos</li>
+                            <li style="padding: 0.5rem 0; color: var(--dark-color);"><i class="fas fa-check" style="color: var(--accent-color); margin-right: 1rem;"></i>Digital gallery</li>
+                        </ul>
+                    </div>
+                    
+                    <p style="font-size: 1.4rem; margin-top: 2rem; font-weight: 500;">
+                        Perfect way to experience my work • First-time clients only
+                    </p>
+                    
+                    <a href="#" onclick="showPage('contact')" style="background: var(--dark-color); color: var(--light-color); padding: 1.5rem 3rem; border-radius: 0.5rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; display: inline-block; margin-top: 2rem; text-decoration: none; transition: var(--transition);">Book Your First Shoot</a>
+                </div>
+            </div>
+
+            <!-- Photography Packages -->
+            <div style="text-align: center; margin: 5rem 0 3rem 0;">
+                <h3 style="color: var(--accent-color); font-size: 2.8rem; margin-bottom: 1rem;">Photography Services</h3>
+                <p class="lead" style="opacity: 0.7;">10+ years of experience capturing your story</p>
+            </div>
+            
+            <div class="pricing-grid">
+                <!-- Portrait/Headshot Package -->
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Most Popular</div>
+                    <h3>Photo Sessions</h3>
+                    <div style="margin: 2rem 0;">
+                        <div style="background: var(--bg-light); padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 1rem;">
+                            <div style="font-size: 2.2rem; font-weight: 700; color: var(--accent-color);">$150 <span style="font-size: 1.4rem; color: var(--dark-color); font-weight: 400;">/ 30 min</span></div>
+                            <p style="font-size: 1.3rem; margin-top: 0.5rem;">1 outfit • 20+ edited photos</p>
+                        </div>
+                        <div style="background: var(--accent-color); color: var(--dark-color); padding: 1.5rem; border-radius: 0.5rem;">
+                            <div style="font-size: 2.2rem; font-weight: 700;">$250 <span style="font-size: 1.4rem; font-weight: 400;">/ 1 hour</span></div>
+                            <p style="font-size: 1.3rem; margin-top: 0.5rem;">2-3 outfits • 40+ edited photos</p>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Studio or outdoor location</li>
+                        <li><i class="fas fa-check"></i> Professional editing & retouching</li>
+                        <li><i class="fas fa-check"></i> High-resolution digital gallery</li>
+                        <li><i class="fas fa-check"></i> Social media ready formats</li>
+                        <li><i class="fas fa-check"></i> Personal consultation</li>
+                        <li><i class="fas fa-check"></i> Perfect for portraits, headshots, graduations, engagements</li>
+                    </ul>
+                    <a href="#" onclick="showPage('contact')" class="pricing-btn">Book Session</a>
+                </div>
+
+                <!-- Business Branding Package -->
+                <div class="pricing-card">
+                    <h3>Business Branding</h3>
+                    <div class="pricing-price">$750 <span>/ package</span></div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 2-hour session</li>
+                        <li><i class="fas fa-check"></i> 60+ edited photos</li>
+                        <li><i class="fas fa-check"></i> Professional headshots included</li>
+                        <li><i class="fas fa-check"></i> Lifestyle & workspace shots</li>
+                        <li><i class="fas fa-check"></i> Multiple outfit changes</li>
+                        <li><i class="fas fa-check"></i> Formatted for social media, website, marketing</li>
+                        <li><i class="fas fa-check"></i> Commercial usage rights</li>
+                    </ul>
+                    <a href="#" onclick="showPage('contact')" class="pricing-btn">Brand Your Business</a>
+                </div>
+
+                <!-- Business Events Package -->
+                <div class="pricing-card">
+                    <h3>Business Events</h3>
+                    <div class="pricing-price">$2,000 <span>/ event</span></div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 4-hour coverage</li>
+                        <li><i class="fas fa-check"></i> 150+ edited photos minimum</li>
+                        <li><i class="fas fa-check"></i> Event documentation</li>
+                        <li><i class="fas fa-check"></i> Team headshots included</li>
+                        <li><i class="fas fa-check"></i> Professional event photography</li>
+                        <li><i class="fas fa-check"></i> Commercial usage rights</li>
+                        <li><i class="fas fa-check"></i> Digital gallery delivery</li>
+                    </ul>
+                    <a href="#" onclick="showPage('contact')" class="pricing-btn">Book Event</a>
+                </div>
+            </div>
+
+            <!-- Videography Packages -->
+            <div style="text-align: center; margin: 7rem 0 3rem 0;">
+                <h3 style="color: var(--accent-color); font-size: 2.8rem; margin-bottom: 1rem;">Videography Services</h3>
+                <p class="lead" style="opacity: 0.7;">Fresh perspective with proven storytelling skills</p>
+            </div>
+            
+            <div class="pricing-grid">
+                <!-- Short Form Content -->
+                <div class="pricing-card">
+                    <h3>Short Form Content</h3>
+                    <div class="pricing-price">$200 <span>/ video</span></div>
+                    <p style="font-size: 1.4rem; color: var(--accent-color); margin-bottom: 2rem;">Or $750 for 5 videos</p>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 30-60 second videos</li>
+                        <li><i class="fas fa-check"></i> Perfect for TikTok, Instagram, YouTube</li>
+                        <li><i class="fas fa-check"></i> Professional editing</li>
+                        <li><i class="fas fa-check"></i> Multiple format exports</li>
+                        <li><i class="fas fa-check"></i> Quick turnaround (3-5 days)</li>
+                    </ul>
+                    <a href="#" onclick="showPage('contact')" class="pricing-btn">Create Content</a>
+                </div>
+
+                <!-- Business Promotional -->
+                <div class="pricing-card">
+                    <h3>Business Promotional</h3>
+                    <div class="pricing-price">$650 <span>/ video</span></div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 2-3 minute promotional video</li>
+                        <li><i class="fas fa-check"></i> Professional interviews</li>
+                        <li><i class="fas fa-check"></i> B-roll footage</li>
+                        <li><i class="fas fa-check"></i> Music included</li>
+                        <li><i class="fas fa-check"></i> Multiple versions for different platforms</li>
+                        <li><i class="fas fa-check"></i> Commercial usage rights</li>
+                    </ul>
+                    <a href="#" onclick="showPage('contact')" class="pricing-btn">Tell Your Story</a>
+                </div>
+
+                <!-- Custom Video Projects -->
+                <div class="pricing-card">
+                    <h3>Custom Projects</h3>
+                    <div class="pricing-price">Starting at $800</div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Short films & documentaries</li>
+                        <li><i class="fas fa-check"></i> Music videos</li>
+                        <li><i class="fas fa-check"></i> Training & educational content</li>
+                        <li><i class="fas fa-check"></i> Event documentaries</li>
+                        <li><i class="fas fa-check"></i> Creative collaborations</li>
+                        <li><i class="fas fa-check"></i> Tailored to your vision</li>
+                    </ul>
+                    <a href="#" onclick="showPage('contact')" class="pricing-btn">Let's Create</a>
+                </div>
+            </div>
+
+            <!-- Custom Projects Section -->
+            <div style="background: var(--dark-color); color: var(--light-color); border-radius: 1rem; padding: 4rem; text-align: center; margin-top: 6rem;">
+                <h3 style="color: var(--light-color); margin-bottom: 2rem;">Love Working on Unique Projects!</h3>
+                <p class="lead" style="max-width: 800px; margin: 0 auto 3rem auto; color: var(--light-color);">
+                    From fitness studio launches to small business brand stories, I thrive on creative challenges. Every business has a unique story to tell - let's capture yours with fresh eyes and 10+ years of visual storytelling experience.
+                </p>
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin: 3rem 0;">
+                    <span style="background: var(--accent-color); color: var(--dark-color); padding: 0.8rem 1.5rem; border-radius: 2rem; font-weight: 500;">Fitness Studios</span>
+                    <span style="background: var(--accent-color); color: var(--dark-color); padding: 0.8rem 1.5rem; border-radius: 2rem; font-weight: 500;">Restaurant Openings</span>
+                    <span style="background: var(--accent-color); color: var(--dark-color); padding: 0.8rem 1.5rem; border-radius: 2rem; font-weight: 500;">Product Launches</span>
+                    <span style="background: var(--accent-color); color: var(--dark-color); padding: 0.8rem 1.5rem; border-radius: 2rem; font-weight: 500;">Personal Brands</span>
+                    <span style="background: var(--accent-color); color: var(--dark-color); padding: 0.8rem 1.5rem; border-radius: 2rem; font-weight: 500;">Creative Projects</span>
+                </div>
+                <a href="#" onclick="showPage('contact')" style="background: var(--light-color); color: var(--dark-color); padding: 1.5rem 3rem; border-radius: 0.5rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; transition: var(--transition); display: inline-block; text-decoration: none;">Let's Collaborate</a>
+            </div>
+
+            <!-- Add-On Services -->
+            <div style="text-align: center; margin-top: 6rem;">
+                <h3 style="margin-bottom: 3rem; color: var(--dark-color);">Add-On Services</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; max-width: 800px; margin: 0 auto;">
+                    <div style="background: var(--light-color); padding: 2rem; border-radius: 1rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                        <i class="fas fa-edit" style="font-size: 2.5rem; color: var(--accent-color); margin-bottom: 1rem;"></i>
+                        <h4>Rush Delivery</h4>
+                        <p style="font-size: 1.4rem; margin: 1rem 0;">Depends on project<br>48 hours earliest</p>
+                        <strong style="color: var(--accent-color);">+$200</strong>
+                    </div>
+                    <div style="background: var(--light-color); padding: 2rem; border-radius: 1rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                        <i class="fas fa-clock" style="font-size: 2.5rem; color: var(--accent-color); margin-bottom: 1rem;"></i>
+                        <h4>Additional Time</h4>
+                        <p style="font-size: 1.4rem; margin: 1rem 0;">Additional 30 minutes</p>
+                        <strong style="color: var(--accent-color);">+$100</strong>
+                    </div>
+                    <div style="background: var(--light-color); padding: 2rem; border-radius: 1rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                        <i class="fas fa-map-marker-alt" style="font-size: 2.5rem; color: var(--accent-color); margin-bottom: 1rem;"></i>
+                        <h4>Travel Fee</h4>
+                        <p style="font-size: 1.4rem; margin: 1rem 0;">Outside Las Vegas area</p>
+                        <strong style="color: var(--accent-color);">$1.00/mile</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+    
+
+
+    <!-- About Page -->
+    <div id="about-page" class="page">
+        <div style="height: 8rem;"></div>
+        <section id="about" class="about py-7">
+            <div class="container">
+                <div class="about-content grid">
+                    <div class="about-left">
+                        <img src="images/about-photo.jpg" alt="Jay Mora" class="circular-image">
+                    </div>
+                    <div class="about-right">
+                        <div class="title">
+                            <h2>About Me</h2>
+                        </div>
+                        <p class="lead">Hi, I’m Jay! For over 10 years I’ve been telling stories through
+                            photography,
+                            and in the last couple of years I’ve fallen in love with videography too. From working
+                            as a
+                            DP on short films to helping small businesses create videos and photos for their
+                            websites
+                            and social media, I’ve found so much joy in bringing ideas to life.</p>
+
+                        <p class="lead">I’ve been lucky to work with amazing people - agencies, brands, and local
+                            creatives — and I always aim to make the process as fun and collaborative as possible.
+                            Whether
+                            it’s a big project or something more personal, I want everyone I work with to feel
+                            comfortable and excited about what we’re creating together.</p>
+
+                        <p class="lead">At the end of the day, I see both photography and video as more than just my
+                            job—they’re my way of connecting with people and sharing stories that matter.</p>
+
+
+                        <div style="margin-top: 3rem;">
+                            <h3>Experience & Skills</h3>
+                            <div class="work-bottom grid" style="margin-top: 2rem;">
+                                <div>
+                                    <span class="icon"><i class="fas fa-camera"></i></span>
+                                    <h4>10+ Years</h4>
+                                    <p>Photography Experience</p>
+                                </div>
+                                <div>
+                                    <span class="icon"><i class="fas fa-award"></i></span>
+                                    <h4>500+</h4>
+                                    <p>Happy Clients</p>
+                                </div>
+                                <div>
+                                    <span class="icon"><i class="fas fa-video"></i></span>
+                                    <h4>2+ Years</h4>
+                                    <p>Videography & Cinematography</p>
+                                </div>
+                                <div>
+                                    <span class="icon"><i class="fas fa-briefcase"></i></span>
+                                    <h4>Business Focused</h4>
+                                    <p>Brand & Social Media Content</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact-page" class="page">
+        <div style="height: 8rem;"></div>
+        <section id="contact" class="py-7">
+            <div class="container">
+                <div class="contact-content flex">
+                    <div class="contact-left">
+                        <div class="title">
+                            <h2>Let's Work Together</h2>
+                        </div>
+                        <p class="lead"><i class="fas fa-envelope"></i> jayfmora@gmail.com</p>
+                        <p class="lead"><i class="fas fa-phone"></i> Available for consultation</p>
+                        <p class="lead"><i class="fas fa-map-marker-alt"></i> Las Vegas & Worldwide</p>
+
+                        <form method="POST" action="https://formspree.io/f/myyryzjn">
+                            <input type="text" class="form-control" placeholder="Your name here ..." name="name"
+                                required>
+                            <input type="email" class="form-control" placeholder="Your email here" name="email"
+                                required>
+                            <select class="form-control" name="service" required>
+                                <option value="">Select a service</option>
+                                <option value="First-time Client Special">First-time Client Special</option>
+                                <option value="Photography">Photography</option>
+                                <option value="Videography">Videography</option>
+                                <option value="Custom Project">Custom Project</option>
+                            </select>
+                            <textarea class="form-control" placeholder="Tell me about your project..." name="message"
+                                rows="5" style="resize: vertical; min-height: 120px;"></textarea>
+                            <input type="submit" class="btn-submit btn" value="Send Message">
+                        </form>
+                    </div>
+
+                    <div class="contact-right">
+                        <img src="images/contact-me.jpg" alt="contact image">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- footer -->
+    <footer id="footer" class="py-7">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>JAY MORA</h3>
+                    <div>
+                        <img src="images/about-photo.jpg">
+                    </div>
+                </div>
+
+                <div>
+                    <h3>Quick Links</h3>
+                    <ul class="flex">
+                        <li><a href="#" onclick="showPage('about')">About</a></li>
+                        <li><a href="#" onclick="showPage('portfolio')">Portfolio</a></li>
+                        <li><a href="#" onclick="showPage('pricing')">Pricing</a></li>
+                        <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3>Follow Me</h3>
+                    <ul class="social-links" style="justify-content: center;">
+                        <li>
+                            <a href="https://www.facebook.com/jaymoramedia/" class="flex">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/jaymoraphoto/" class="flex">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div
+                style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                <p style="font-size: 1.4rem; opacity: 0.7;">&copy; 2025 Jay Mora Media. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Typewriter effect
+        class TypeWriter {
+            constructor(txtElement, words, wait = 3000) {
+                this.txtElement = txtElement;
+                this.words = words;
+                this.txt = '';
+                this.wordIndex = 0;
+                this.wait = parseInt(wait, 10);
+                this.type();
+                this.isDeleting = false;
+            }
+
+            type() {
+                const current = this.wordIndex % this.words.length;
+                const fullTxt = this.words[current];
+
+                if (this.isDeleting) {
+                    this.txt = fullTxt.substring(0, this.txt.length - 1);
+                } else {
+                    this.txt = fullTxt.substring(0, this.txt.length + 1);
+                }
+
+                this.txtElement.innerHTML = `<span class="txt">${this.txt}</span>`;
+
+                let typeSpeed = 200;
+
+                if (this.isDeleting) {
+                    typeSpeed /= 2;
+                }
+
+                if (!this.isDeleting && this.txt === fullTxt) {
+                    typeSpeed = this.wait;
+                    this.isDeleting = true;
+                } else if (this.isDeleting && this.txt === '') {
+                    this.isDeleting = false;
+                    this.wordIndex++;
+                    typeSpeed = 500;
+                }
+
+                setTimeout(() => this.type(), typeSpeed);
+            }
+        }
+
+        // Initialize typewriter
+        document.addEventListener('DOMContentLoaded', () => {
+            const txtElement = document.querySelector('.typewrite');
+            if (txtElement) {
+                const words = JSON.parse(txtElement.getAttribute('data-words'));
+                const wait = txtElement.getAttribute('data-delay');
+                new TypeWriter(txtElement, words, wait);
+            }
+        });
+
+        // Navigation functionality
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+
+            // Show selected page
+            let targetPage;
+            switch (pageId) {
+                case 'home':
+                    targetPage = document.getElementById('home');
+                    break;
+                case 'portfolio':
+                    targetPage = document.getElementById('portfolio-page');
+                    break;
+                case 'pricing':
+                    targetPage = document.getElementById('pricing-page');
+                    break;
+                case 'about':
+                    targetPage = document.getElementById('about-page');
+                    break;
+                case 'contact':
+                    targetPage = document.getElementById('contact-page');
+                    break;
+            }
+
+            if (targetPage) {
+                targetPage.classList.add('active');
+                window.scrollTo(0, 0);
+            }
+
+            // Update active nav link
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => link.classList.remove('active'));
+
+            const activeLink = document.querySelector(`[onclick="showPage('${pageId}')"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+
+            // Close mobile menu if open
+            const navbar = document.getElementById('navbar');
+            navbar.classList.remove('mobile-open');
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('visible');
+            } else {
+                navbar.classList.remove('visible');
+            }
+        });
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navbar = document.getElementById('navbar');
+            navbar.classList.toggle('mobile-open');
+        }
+
+        // Show navbar immediately on non-home pages
+        function checkInitialNavbar() {
+            const navbar = document.getElementById('navbar');
+            const homePage = document.getElementById('home');
+            if (!homePage.classList.contains('active')) {
+                navbar.classList.add('visible');
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            checkInitialNavbar();
+        });
+
+        // Form enhancement
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.querySelector('form');
+            if (form) {
+                form.addEventListener('submit', function (e) {
+                    const submitBtn = this.querySelector('.btn-submit');
+                    submitBtn.value = 'Sending...';
+                    submitBtn.disabled = true;
+
+                    // Re-enable after form submission
+                    setTimeout(() => {
+                        submitBtn.value = 'Send Message';
+                        submitBtn.disabled = false;
+                    }, 3000);
+                });
+            }
+        });
+    </script>
+</body>
