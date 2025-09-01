@@ -110,7 +110,7 @@
             z-index: 1000;
             padding: 1rem 0;
             transition: var(--transition);
-            transform: translateY(-100%);
+            transform: translateY(0);
         }
 
         .navbar.visible {
@@ -925,7 +925,6 @@
                     <div class="title">
                         <h2>My Recent Works</h2>
                     </div>
-                    
                     <div class="portfolio-grid grid">
                         <div><img src="images/port-1.jpg" alt="Portfolio Image"> </div>
                         <div><img src="images/port-2.jpg" alt="Portfolio Image"></div>
@@ -1006,205 +1005,257 @@
 
 
     <!-- Pricing Page -->
-<div id="pricing-page" class="page">
-    <div style="height: 8rem;"></div>
-    <section id="pricing">
-        <div class="container">
-            <div class="title">
-                <h2>Investment & Packages</h2>
-                <p class="lead" style="text-align: center; max-width: 700px; margin: 0 auto;">Professional photography and videography services tailored to elevate your personal brand or business. 10+ years of photography expertise meets fresh videography innovation.</p>
-            </div>
-            
-            <!-- First Time Client Special -->
-            <div style="background: linear-gradient(135deg, var(--accent-color), #d4b886); color: var(--dark-color); border-radius: 1rem; padding: 4rem 2rem; text-align: center; margin: 4rem 0 6rem 0; position: relative; overflow: hidden;">
-                <div style="position: absolute; top: -50px; right: -50px; background: rgba(255,255,255,0.1); border-radius: 50%; width: 150px; height: 150px;"></div>
-                <div style="position: absolute; bottom: -30px; left: -30px; background: rgba(255,255,255,0.1); border-radius: 50%; width: 100px; height: 100px;"></div>
-                
-                <div style="position: relative; z-index: 2;">
-                    <h3 style="color: var(--dark-color); font-size: 2.8rem; margin-bottom: 1rem;">First Time Client Special</h3>
-                    <p style="font-size: 1.8rem; margin-bottom: 2rem; font-weight: 500;">Try my work at my select location</p>
-                    
-                    <div style="background: rgba(255,255,255,0.9); padding: 3rem; border-radius: 1rem; backdrop-filter: blur(10px); max-width: 400px; margin: 0 auto;">
-                        <i class="fas fa-camera" style="font-size: 3rem; color: var(--dark-color); margin-bottom: 1.5rem;"></i>
-                        <h4 style="color: var(--dark-color); margin-bottom: 1rem; font-size: 2rem;">Photo Mini Session</h4>
-                        <div style="font-size: 2.8rem; font-weight: 700; color: var(--dark-color); margin: 1.5rem 0;">$75</div>
-                        <ul style="text-align: left; list-style: none; padding: 0;">
-                            <li style="padding: 0.5rem 0; color: var(--dark-color);"><i class="fas fa-check" style="color: var(--accent-color); margin-right: 1rem;"></i>15-minute session</li>
-                            <li style="padding: 0.5rem 0; color: var(--dark-color);"><i class="fas fa-check" style="color: var(--accent-color); margin-right: 1rem;"></i>10+ edited photos</li>
-                            <li style="padding: 0.5rem 0; color: var(--dark-color);"><i class="fas fa-check" style="color: var(--accent-color); margin-right: 1rem;"></i>Digital gallery</li>
+    <div id="pricing-page" class="page">
+        <div style="height: 8rem;"></div>
+        <section id="pricing">
+            <div class="container">
+                <div class="title">
+                    <h2>Investment & Packages</h2>
+                    <p class="lead" style="text-align: center; max-width: 700px; margin: 0 auto;">Professional
+                        photography and videography services tailored to elevate your personal brand or business. 10+
+                        years of photography expertise meets fresh videography innovation.</p>
+                </div>
+
+                <!-- First Time Client Special -->
+                <div
+                    style="background: linear-gradient(135deg, var(--accent-color), #d4b886); color: var(--dark-color); border-radius: 1rem; padding: 4rem 2rem; text-align: center; margin: 4rem 0 6rem 0; position: relative; overflow: hidden;">
+                    <div
+                        style="position: absolute; top: -50px; right: -50px; background: rgba(255,255,255,0.1); border-radius: 50%; width: 150px; height: 150px;">
+                    </div>
+                    <div
+                        style="position: absolute; bottom: -30px; left: -30px; background: rgba(255,255,255,0.1); border-radius: 50%; width: 100px; height: 100px;">
+                    </div>
+
+                    <div style="position: relative; z-index: 2;">
+                        <h3 style="color: var(--dark-color); font-size: 2.8rem; margin-bottom: 1rem;">First Time Client
+                            Special</h3>
+                        <p style="font-size: 1.8rem; margin-bottom: 2rem; font-weight: 500;">Try my work at my select
+                            location</p>
+
+                        <div
+                            style="background: rgba(255,255,255,0.9); padding: 3rem; border-radius: 1rem; backdrop-filter: blur(10px); max-width: 400px; margin: 0 auto;">
+                            <i class="fas fa-camera"
+                                style="font-size: 3rem; color: var(--dark-color); margin-bottom: 1.5rem;"></i>
+                            <h4 style="color: var(--dark-color); margin-bottom: 1rem; font-size: 2rem;">Photo Mini
+                                Session</h4>
+                            <div
+                                style="font-size: 2.8rem; font-weight: 700; color: var(--dark-color); margin: 1.5rem 0;">
+                                $75</div>
+                            <ul style="text-align: left; list-style: none; padding: 0;">
+                                <li style="padding: 0.5rem 0; color: var(--dark-color);"><i class="fas fa-check"
+                                        style="color: var(--accent-color); margin-right: 1rem;"></i>15-minute session
+                                </li>
+                                <li style="padding: 0.5rem 0; color: var(--dark-color);"><i class="fas fa-check"
+                                        style="color: var(--accent-color); margin-right: 1rem;"></i>10+ edited photos
+                                </li>
+                                <li style="padding: 0.5rem 0; color: var(--dark-color);"><i class="fas fa-check"
+                                        style="color: var(--accent-color); margin-right: 1rem;"></i>Digital gallery</li>
+                            </ul>
+                        </div>
+
+                        <p style="font-size: 1.4rem; margin-top: 2rem; font-weight: 500;">
+                            Perfect way to experience my work • First-time clients only
+                        </p>
+
+                        <a href="#" onclick="showPage('contact')"
+                            style="background: var(--dark-color); color: var(--light-color); padding: 1.5rem 3rem; border-radius: 0.5rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; display: inline-block; margin-top: 2rem; text-decoration: none; transition: var(--transition);">Book
+                            Your First Shoot</a>
+                    </div>
+                </div>
+
+                <!-- Photography Packages -->
+                <div style="text-align: center; margin: 5rem 0 3rem 0;">
+                    <h3 style="color: var(--accent-color); font-size: 2.8rem; margin-bottom: 1rem;">Photography Services
+                    </h3>
+                    <p class="lead" style="opacity: 0.7;">10+ years of experience capturing your story</p>
+                </div>
+
+                <div class="pricing-grid">
+                    <!-- Portrait/Headshot Package -->
+                    <div class="pricing-card featured">
+                        <div class="pricing-badge">Most Popular</div>
+                        <h3>Photo Sessions</h3>
+                        <div style="margin: 2rem 0;">
+                            <div
+                                style="background: var(--bg-light); padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 1rem;">
+                                <div style="font-size: 2.2rem; font-weight: 700; color: var(--accent-color);">$150 <span
+                                        style="font-size: 1.4rem; color: var(--dark-color); font-weight: 400;">/ 30
+                                        min</span></div>
+                                <p style="font-size: 1.3rem; margin-top: 0.5rem;">1 outfit • 20+ edited photos</p>
+                            </div>
+                            <div
+                                style="background: var(--accent-color); color: var(--dark-color); padding: 1.5rem; border-radius: 0.5rem;">
+                                <div style="font-size: 2.2rem; font-weight: 700;">$250 <span
+                                        style="font-size: 1.4rem; font-weight: 400;">/ 1 hour</span></div>
+                                <p style="font-size: 1.3rem; margin-top: 0.5rem;">2-3 outfits • 40+ edited photos</p>
+                            </div>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> Studio or outdoor location</li>
+                            <li><i class="fas fa-check"></i> Professional editing & retouching</li>
+                            <li><i class="fas fa-check"></i> High-resolution digital gallery</li>
+                            <li><i class="fas fa-check"></i> Social media ready formats</li>
+                            <li><i class="fas fa-check"></i> Personal consultation</li>
+                            <li><i class="fas fa-check"></i> Perfect for portraits, headshots, graduations, engagements
+                            </li>
                         </ul>
+                        <a href="#" onclick="showPage('contact')" class="pricing-btn">Book Session</a>
                     </div>
-                    
-                    <p style="font-size: 1.4rem; margin-top: 2rem; font-weight: 500;">
-                        Perfect way to experience my work • First-time clients only
+
+                    <!-- Business Branding Package -->
+                    <div class="pricing-card">
+                        <h3>Business Branding</h3>
+                        <div class="pricing-price">$750 <span>/ package</span></div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> 2-hour session</li>
+                            <li><i class="fas fa-check"></i> 60+ edited photos</li>
+                            <li><i class="fas fa-check"></i> Professional headshots included</li>
+                            <li><i class="fas fa-check"></i> Lifestyle & workspace shots</li>
+                            <li><i class="fas fa-check"></i> Multiple outfit changes</li>
+                            <li><i class="fas fa-check"></i> Formatted for social media, website, marketing</li>
+                            <li><i class="fas fa-check"></i> Commercial usage rights</li>
+                        </ul>
+                        <a href="#" onclick="showPage('contact')" class="pricing-btn">Brand Your Business</a>
+                    </div>
+
+                    <!-- Business Events Package -->
+                    <div class="pricing-card">
+                        <h3>Business Events</h3>
+                        <div class="pricing-price">$2,000 <span>/ event</span></div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> 4-hour coverage</li>
+                            <li><i class="fas fa-check"></i> 150+ edited photos minimum</li>
+                            <li><i class="fas fa-check"></i> Event documentation</li>
+                            <li><i class="fas fa-check"></i> Team headshots included</li>
+                            <li><i class="fas fa-check"></i> Professional event photography</li>
+                            <li><i class="fas fa-check"></i> Commercial usage rights</li>
+                            <li><i class="fas fa-check"></i> Digital gallery delivery</li>
+                        </ul>
+                        <a href="#" onclick="showPage('contact')" class="pricing-btn">Book Event</a>
+                    </div>
+                </div>
+
+                <!-- Videography Packages -->
+                <div style="text-align: center; margin: 7rem 0 3rem 0;">
+                    <h3 style="color: var(--accent-color); font-size: 2.8rem; margin-bottom: 1rem;">Videography Services
+                    </h3>
+                    <p class="lead" style="opacity: 0.7;">Fresh perspective with proven storytelling skills</p>
+                </div>
+
+                <div class="pricing-grid">
+                    <!-- Short Form Content -->
+                    <div class="pricing-card">
+                        <h3>Short Form Content</h3>
+                        <div class="pricing-price">$200 <span>/ video</span></div>
+                        <p style="font-size: 1.4rem; color: var(--accent-color); margin-bottom: 2rem;">Or $750 for 5
+                            videos</p>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> 30-60 second videos</li>
+                            <li><i class="fas fa-check"></i> Perfect for TikTok, Instagram, YouTube</li>
+                            <li><i class="fas fa-check"></i> Professional editing</li>
+                            <li><i class="fas fa-check"></i> Multiple format exports</li>
+                            <li><i class="fas fa-check"></i> Quick turnaround (3-5 days)</li>
+                        </ul>
+                        <a href="#" onclick="showPage('contact')" class="pricing-btn">Create Content</a>
+                    </div>
+
+                    <!-- Business Promotional -->
+                    <div class="pricing-card">
+                        <h3>Business Promotional</h3>
+                        <div class="pricing-price">$650 <span>/ video</span></div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> 2-3 minute promotional video</li>
+                            <li><i class="fas fa-check"></i> Professional interviews</li>
+                            <li><i class="fas fa-check"></i> B-roll footage</li>
+                            <li><i class="fas fa-check"></i> Music included</li>
+                            <li><i class="fas fa-check"></i> Multiple versions for different platforms</li>
+                            <li><i class="fas fa-check"></i> Commercial usage rights</li>
+                        </ul>
+                        <a href="#" onclick="showPage('contact')" class="pricing-btn">Tell Your Story</a>
+                    </div>
+
+                    <!-- Custom Video Projects -->
+                    <div class="pricing-card">
+                        <h3>Custom Projects</h3>
+                        <div class="pricing-price">Starting at $800</div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> Short films & documentaries</li>
+                            <li><i class="fas fa-check"></i> Music videos</li>
+                            <li><i class="fas fa-check"></i> Training & educational content</li>
+                            <li><i class="fas fa-check"></i> Event documentaries</li>
+                            <li><i class="fas fa-check"></i> Creative collaborations</li>
+                            <li><i class="fas fa-check"></i> Tailored to your vision</li>
+                        </ul>
+                        <a href="#" onclick="showPage('contact')" class="pricing-btn">Let's Create</a>
+                    </div>
+                </div>
+
+                <!-- Custom Projects Section -->
+                <div
+                    style="background: var(--dark-color); color: var(--light-color); border-radius: 1rem; padding: 4rem; text-align: center; margin-top: 6rem;">
+                    <h3 style="color: var(--light-color); margin-bottom: 2rem;">Love Working on Unique Projects!</h3>
+                    <p class="lead" style="max-width: 800px; margin: 0 auto 3rem auto; color: var(--light-color);">
+                        From fitness studio launches to small business brand stories, I thrive on creative challenges.
+                        Every business has a unique story to tell - let's capture yours with fresh eyes and 10+ years of
+                        visual storytelling experience.
                     </p>
-                    
-                    <a href="#" onclick="showPage('contact')" style="background: var(--dark-color); color: var(--light-color); padding: 1.5rem 3rem; border-radius: 0.5rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; display: inline-block; margin-top: 2rem; text-decoration: none; transition: var(--transition);">Book Your First Shoot</a>
+                    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin: 3rem 0;">
+                        <span
+                            style="background: var(--accent-color); color: var(--dark-color); padding: 0.8rem 1.5rem; border-radius: 2rem; font-weight: 500;">Fitness
+                            Studios</span>
+                        <span
+                            style="background: var(--accent-color); color: var(--dark-color); padding: 0.8rem 1.5rem; border-radius: 2rem; font-weight: 500;">Restaurant
+                            Openings</span>
+                        <span
+                            style="background: var(--accent-color); color: var(--dark-color); padding: 0.8rem 1.5rem; border-radius: 2rem; font-weight: 500;">Product
+                            Launches</span>
+                        <span
+                            style="background: var(--accent-color); color: var(--dark-color); padding: 0.8rem 1.5rem; border-radius: 2rem; font-weight: 500;">Personal
+                            Brands</span>
+                        <span
+                            style="background: var(--accent-color); color: var(--dark-color); padding: 0.8rem 1.5rem; border-radius: 2rem; font-weight: 500;">Creative
+                            Projects</span>
+                    </div>
+                    <a href="#" onclick="showPage('contact')"
+                        style="background: var(--light-color); color: var(--dark-color); padding: 1.5rem 3rem; border-radius: 0.5rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; transition: var(--transition); display: inline-block; text-decoration: none;">Let's
+                        Collaborate</a>
                 </div>
-            </div>
 
-            <!-- Photography Packages -->
-            <div style="text-align: center; margin: 5rem 0 3rem 0;">
-                <h3 style="color: var(--accent-color); font-size: 2.8rem; margin-bottom: 1rem;">Photography Services</h3>
-                <p class="lead" style="opacity: 0.7;">10+ years of experience capturing your story</p>
-            </div>
-            
-            <div class="pricing-grid">
-                <!-- Portrait/Headshot Package -->
-                <div class="pricing-card featured">
-                    <div class="pricing-badge">Most Popular</div>
-                    <h3>Photo Sessions</h3>
-                    <div style="margin: 2rem 0;">
-                        <div style="background: var(--bg-light); padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 1rem;">
-                            <div style="font-size: 2.2rem; font-weight: 700; color: var(--accent-color);">$150 <span style="font-size: 1.4rem; color: var(--dark-color); font-weight: 400;">/ 30 min</span></div>
-                            <p style="font-size: 1.3rem; margin-top: 0.5rem;">1 outfit • 20+ edited photos</p>
+                <!-- Add-On Services -->
+                <div style="text-align: center; margin-top: 6rem;">
+                    <h3 style="margin-bottom: 3rem; color: var(--dark-color);">Add-On Services</h3>
+                    <div
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; max-width: 800px; margin: 0 auto;">
+                        <div
+                            style="background: var(--light-color); padding: 2rem; border-radius: 1rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                            <i class="fas fa-edit"
+                                style="font-size: 2.5rem; color: var(--accent-color); margin-bottom: 1rem;"></i>
+                            <h4>Rush Delivery</h4>
+                            <p style="font-size: 1.4rem; margin: 1rem 0;">Depends on project<br>48 hours earliest</p>
+                            <strong style="color: var(--accent-color);">+$200</strong>
                         </div>
-                        <div style="background: var(--accent-color); color: var(--dark-color); padding: 1.5rem; border-radius: 0.5rem;">
-                            <div style="font-size: 2.2rem; font-weight: 700;">$250 <span style="font-size: 1.4rem; font-weight: 400;">/ 1 hour</span></div>
-                            <p style="font-size: 1.3rem; margin-top: 0.5rem;">2-3 outfits • 40+ edited photos</p>
+                        <div
+                            style="background: var(--light-color); padding: 2rem; border-radius: 1rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                            <i class="fas fa-clock"
+                                style="font-size: 2.5rem; color: var(--accent-color); margin-bottom: 1rem;"></i>
+                            <h4>Additional Time</h4>
+                            <p style="font-size: 1.4rem; margin: 1rem 0;">Additional 30 minutes</p>
+                            <strong style="color: var(--accent-color);">+$100</strong>
+                        </div>
+                        <div
+                            style="background: var(--light-color); padding: 2rem; border-radius: 1rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                            <i class="fas fa-map-marker-alt"
+                                style="font-size: 2.5rem; color: var(--accent-color); margin-bottom: 1rem;"></i>
+                            <h4>Travel Fee</h4>
+                            <p style="font-size: 1.4rem; margin: 1rem 0;">Outside Las Vegas area</p>
+                            <strong style="color: var(--accent-color);">$1.00/mile</strong>
                         </div>
                     </div>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Studio or outdoor location</li>
-                        <li><i class="fas fa-check"></i> Professional editing & retouching</li>
-                        <li><i class="fas fa-check"></i> High-resolution digital gallery</li>
-                        <li><i class="fas fa-check"></i> Social media ready formats</li>
-                        <li><i class="fas fa-check"></i> Personal consultation</li>
-                        <li><i class="fas fa-check"></i> Perfect for portraits, headshots, graduations, engagements</li>
-                    </ul>
-                    <a href="#" onclick="showPage('contact')" class="pricing-btn">Book Session</a>
-                </div>
-
-                <!-- Business Branding Package -->
-                <div class="pricing-card">
-                    <h3>Business Branding</h3>
-                    <div class="pricing-price">$750 <span>/ package</span></div>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> 2-hour session</li>
-                        <li><i class="fas fa-check"></i> 60+ edited photos</li>
-                        <li><i class="fas fa-check"></i> Professional headshots included</li>
-                        <li><i class="fas fa-check"></i> Lifestyle & workspace shots</li>
-                        <li><i class="fas fa-check"></i> Multiple outfit changes</li>
-                        <li><i class="fas fa-check"></i> Formatted for social media, website, marketing</li>
-                        <li><i class="fas fa-check"></i> Commercial usage rights</li>
-                    </ul>
-                    <a href="#" onclick="showPage('contact')" class="pricing-btn">Brand Your Business</a>
-                </div>
-
-                <!-- Business Events Package -->
-                <div class="pricing-card">
-                    <h3>Business Events</h3>
-                    <div class="pricing-price">$2,000 <span>/ event</span></div>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> 4-hour coverage</li>
-                        <li><i class="fas fa-check"></i> 150+ edited photos minimum</li>
-                        <li><i class="fas fa-check"></i> Event documentation</li>
-                        <li><i class="fas fa-check"></i> Team headshots included</li>
-                        <li><i class="fas fa-check"></i> Professional event photography</li>
-                        <li><i class="fas fa-check"></i> Commercial usage rights</li>
-                        <li><i class="fas fa-check"></i> Digital gallery delivery</li>
-                    </ul>
-                    <a href="#" onclick="showPage('contact')" class="pricing-btn">Book Event</a>
                 </div>
             </div>
+        </section>
+    </div>
 
-            <!-- Videography Packages -->
-            <div style="text-align: center; margin: 7rem 0 3rem 0;">
-                <h3 style="color: var(--accent-color); font-size: 2.8rem; margin-bottom: 1rem;">Videography Services</h3>
-                <p class="lead" style="opacity: 0.7;">Fresh perspective with proven storytelling skills</p>
-            </div>
-            
-            <div class="pricing-grid">
-                <!-- Short Form Content -->
-                <div class="pricing-card">
-                    <h3>Short Form Content</h3>
-                    <div class="pricing-price">$200 <span>/ video</span></div>
-                    <p style="font-size: 1.4rem; color: var(--accent-color); margin-bottom: 2rem;">Or $750 for 5 videos</p>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> 30-60 second videos</li>
-                        <li><i class="fas fa-check"></i> Perfect for TikTok, Instagram, YouTube</li>
-                        <li><i class="fas fa-check"></i> Professional editing</li>
-                        <li><i class="fas fa-check"></i> Multiple format exports</li>
-                        <li><i class="fas fa-check"></i> Quick turnaround (3-5 days)</li>
-                    </ul>
-                    <a href="#" onclick="showPage('contact')" class="pricing-btn">Create Content</a>
-                </div>
-
-                <!-- Business Promotional -->
-                <div class="pricing-card">
-                    <h3>Business Promotional</h3>
-                    <div class="pricing-price">$650 <span>/ video</span></div>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> 2-3 minute promotional video</li>
-                        <li><i class="fas fa-check"></i> Professional interviews</li>
-                        <li><i class="fas fa-check"></i> B-roll footage</li>
-                        <li><i class="fas fa-check"></i> Music included</li>
-                        <li><i class="fas fa-check"></i> Multiple versions for different platforms</li>
-                        <li><i class="fas fa-check"></i> Commercial usage rights</li>
-                    </ul>
-                    <a href="#" onclick="showPage('contact')" class="pricing-btn">Tell Your Story</a>
-                </div>
-
-                <!-- Custom Video Projects -->
-                <div class="pricing-card">
-                    <h3>Custom Projects</h3>
-                    <div class="pricing-price">Starting at $800</div>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Short films & documentaries</li>
-                        <li><i class="fas fa-check"></i> Music videos</li>
-                        <li><i class="fas fa-check"></i> Training & educational content</li>
-                        <li><i class="fas fa-check"></i> Event documentaries</li>
-                        <li><i class="fas fa-check"></i> Creative collaborations</li>
-                        <li><i class="fas fa-check"></i> Tailored to your vision</li>
-                    </ul>
-                    <a href="#" onclick="showPage('contact')" class="pricing-btn">Let's Create</a>
-                </div>
-            </div>
-
-            <!-- Custom Projects Section -->
-            <div style="background: var(--dark-color); color: var(--light-color); border-radius: 1rem; padding: 4rem; text-align: center; margin-top: 6rem;">
-                <h3 style="color: var(--light-color); margin-bottom: 2rem;">Love Working on Unique Projects!</h3>
-                <p class="lead" style="max-width: 800px; margin: 0 auto 3rem auto; color: var(--light-color);">
-                    From fitness studio launches to small business brand stories, I thrive on creative challenges. Every business has a unique story to tell - let's capture yours with fresh eyes and 10+ years of visual storytelling experience.
-                </p>
-                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin: 3rem 0;">
-                    <span style="background: var(--accent-color); color: var(--dark-color); padding: 0.8rem 1.5rem; border-radius: 2rem; font-weight: 500;">Fitness Studios</span>
-                    <span style="background: var(--accent-color); color: var(--dark-color); padding: 0.8rem 1.5rem; border-radius: 2rem; font-weight: 500;">Restaurant Openings</span>
-                    <span style="background: var(--accent-color); color: var(--dark-color); padding: 0.8rem 1.5rem; border-radius: 2rem; font-weight: 500;">Product Launches</span>
-                    <span style="background: var(--accent-color); color: var(--dark-color); padding: 0.8rem 1.5rem; border-radius: 2rem; font-weight: 500;">Personal Brands</span>
-                    <span style="background: var(--accent-color); color: var(--dark-color); padding: 0.8rem 1.5rem; border-radius: 2rem; font-weight: 500;">Creative Projects</span>
-                </div>
-                <a href="#" onclick="showPage('contact')" style="background: var(--light-color); color: var(--dark-color); padding: 1.5rem 3rem; border-radius: 0.5rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; transition: var(--transition); display: inline-block; text-decoration: none;">Let's Collaborate</a>
-            </div>
-
-            <!-- Add-On Services -->
-            <div style="text-align: center; margin-top: 6rem;">
-                <h3 style="margin-bottom: 3rem; color: var(--dark-color);">Add-On Services</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; max-width: 800px; margin: 0 auto;">
-                    <div style="background: var(--light-color); padding: 2rem; border-radius: 1rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                        <i class="fas fa-edit" style="font-size: 2.5rem; color: var(--accent-color); margin-bottom: 1rem;"></i>
-                        <h4>Rush Delivery</h4>
-                        <p style="font-size: 1.4rem; margin: 1rem 0;">Depends on project<br>48 hours earliest</p>
-                        <strong style="color: var(--accent-color);">+$200</strong>
-                    </div>
-                    <div style="background: var(--light-color); padding: 2rem; border-radius: 1rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                        <i class="fas fa-clock" style="font-size: 2.5rem; color: var(--accent-color); margin-bottom: 1rem;"></i>
-                        <h4>Additional Time</h4>
-                        <p style="font-size: 1.4rem; margin: 1rem 0;">Additional 30 minutes</p>
-                        <strong style="color: var(--accent-color);">+$100</strong>
-                    </div>
-                    <div style="background: var(--light-color); padding: 2rem; border-radius: 1rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                        <i class="fas fa-map-marker-alt" style="font-size: 2.5rem; color: var(--accent-color); margin-bottom: 1rem;"></i>
-                        <h4>Travel Fee</h4>
-                        <p style="font-size: 1.4rem; margin: 1rem 0;">Outside Las Vegas area</p>
-                        <strong style="color: var(--accent-color);">$1.00/mile</strong>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
-    
 
 
     <!-- About Page -->
@@ -1455,6 +1506,7 @@
         }
 
         // Navbar scroll effect
+        /*
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 100) {
@@ -1463,6 +1515,7 @@
                 navbar.classList.remove('visible');
             }
         });
+        */
 
         // Mobile menu toggle
         function toggleMobileMenu() {
